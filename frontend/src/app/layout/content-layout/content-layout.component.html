@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer (footerHeight)="setBodyHeight($event)"></app-footer>
+
+<div id="interactions">
+  <app-modal></app-modal>
+</div>
