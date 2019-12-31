@@ -1,4 +1,6 @@
 #!/bin/sh
+set -euo pipefail
+
 cd $TRAVIS_BUILD_DIR/frontend
 npm install
 npm run test
