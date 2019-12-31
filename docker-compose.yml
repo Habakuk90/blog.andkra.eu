@@ -3,7 +3,7 @@ version: '3'
 services:
   blog_api:
     container_name: strapi
-    image: blog.andkra.eu.backend
+    image: wahnsinnshub/blog.andkra.eu.backend
     build:
       context: ./backend
       dockerfile: DOCKERFILE
@@ -21,7 +21,7 @@ services:
       - db
   blog_app:
     container_name: web
-    image: blog.andkra.eu.frontend
+    image: wahnsinnshub/blog.andkra.eu.frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -40,6 +40,10 @@ services:
       - MYSQL_PASSWORD=strapi
       - MYSQL_ROOT_PASSWORD=strapi
       - MYSQL_ROOT_HOST=%
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
     volumes:
       - ./strapi/db:/var/lib/mysql
     ports:
