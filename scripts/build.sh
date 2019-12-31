@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# DOCU: abort script if one of the commands fails
 set -euo pipefail
 
 cd $TRAVIS_BUILD_DIR/frontend
