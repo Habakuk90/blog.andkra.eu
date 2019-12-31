@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+# TODO configure envoy
+#   api.andkra.eu:
+#     build:
+#       context: ./envoy/
+#       dockerfile: DOCKERFILE
+#     volumes:
+#       - ./envoy/envoy.yaml:/etc/envoy.yaml
+#     networks:
+#       - envoymesh
+#     expose:
+#       - "80"
+#       - "8001"
+# # these ports are available for your machine. change to 80:80 if on production.
+#     ports:
+#       - "80:80"
+#       - "8001:8001"
+  blog_api:
+    container_name: strapi
+    image: wahnsinnshub/blog.andkra.eu.backend
+    env_file:
+      - strapi.env
+    ports:
+      - 1337:1337
+    volumes:
+      - ./strapi/app:/srv/app
+    depends_on:
+      - db
+  blog_app:
+    container_name: web
+    image: wahnsinnshub/blog.andkra.eu.frontend
+    environment:
+      - STRAPI_URL=http://andkra.eu:1337
+    ports:
+      - 2000:80
+  db:
+    container_name: mysql
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    env_file:
+      - db.env
+    volumes:
+      - ./strapi/db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+# networks:
+#   envoymesh: {}

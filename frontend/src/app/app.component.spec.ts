@@ -4,7 +4,6 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { HeaderComponent } from './layout/content-layout/header/header.component';
 import { FooterComponent } from './layout/content-layout/footer/footer.component';
 import { PageNotFoundComponent } from './layout/content-layout/page-not-found/page-not-found.component';
-import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -19,7 +18,6 @@ describe('AppComponent', () => {
         HeaderComponent,
         FooterComponent,
         PageNotFoundComponent,
-        AuthLayoutComponent
       ],
       imports: [
         BrowserModule,

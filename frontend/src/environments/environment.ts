@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  strapi_url: process.env.STRAPI_URL || 'localhost:1337',
 };
 
 

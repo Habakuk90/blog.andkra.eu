@@ -3,13 +3,10 @@ node_js:
   - 13
 cache:
   - directories:
-    - node_modules
-# before_script:
-#   - npm install
-script:
-  - npm run test
-  - npm run lint
-  - npm run build:travis
+    - frontend/node_modules
+    - backend/node_modules
+before_script: chmod +x scripts/build.sh
+script: scripts/build.sh
 
 deploy:
   provider: script
