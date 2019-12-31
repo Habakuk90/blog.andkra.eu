@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "blog_posts",
+  "info": {
+    "name": "Blog post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "Text": {
+      "type": "richtext"
+    },
+    "dings": {
+      "type": "enumeration",
+      "enum": [
+        "morning",
+        "noon"
+      ]
+    }
+  }
+}
