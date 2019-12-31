@@ -3,7 +3,7 @@ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 cd $TRAVIS_BUILD_DIR/frontend
 
-docker build --build-arg key=${STRAPI_URL} -t wahnsinnshub/blog.andkra.eu.frontend:latest .
+docker build --build-arg url=${STRAPI_URL} -t wahnsinnshub/blog.andkra.eu.frontend:latest .
 docker push wahnsinnshub/blog.andkra.eu.frontend:latest
 
 cd $TRAVIS_BUILD_DIR/backend

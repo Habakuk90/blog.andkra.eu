@@ -24,15 +24,11 @@ services:
       - strapi.env
     ports:
       - 1337:1337
-    volumes:
-      - ./strapi/app:/srv/app
     depends_on:
       - db
   blog_app:
     container_name: web
     image: wahnsinnshub/blog.andkra.eu.frontend
-    environment:
-      - STRAPI_URL=http://andkra.eu:1337
     ports:
       - 2000:80
   db:
@@ -48,5 +44,9 @@ services:
       - 3306:3306
     expose:
       - "3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 # networks:
 #   envoymesh: {}
