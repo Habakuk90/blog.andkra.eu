@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "text_block",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_blog_post_text_blocks"
+}

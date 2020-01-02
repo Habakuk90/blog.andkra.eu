@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-content-layout',
@@ -9,11 +8,8 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class ContentLayoutComponent implements OnInit {
   apiUrl = environment.strapi_url;
-  constructor(public apiService: ApiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.apiService.getBlogPosts().subscribe(x => {
-      console.log(x);
-    });
   }
 }

@@ -17,15 +17,23 @@
     "description": {
       "type": "richtext"
     },
-    "Text": {
-      "type": "richtext"
-    },
-    "dings": {
-      "type": "enumeration",
-      "enum": [
-        "morning",
-        "noon"
+    "post_dynamic": {
+      "type": "dynamiczone",
+      "components": [
+        "blog-post.images",
+        "blog-post.image",
+        "blog-post.text-block"
       ]
+    },
+    "blog_categories": {
+      "collection": "blog-category",
+      "via": "blog_posts"
+    },
+    "featured_image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "image",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "caption": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_blog_post_images"
+}
