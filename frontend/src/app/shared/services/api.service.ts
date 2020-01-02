@@ -2,27 +2,32 @@ import { HttpClient } from '@angular/common/http';
 import { BaseService } from 'src/app/core/services/base.service';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
-import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService extends BaseService {
 
-  constructor(public http: HttpClient, private location: ActivatedRoute) {
+  constructor(public http: HttpClient) {
     super();
   }
 
-  // protected browse<T extends IBaseResponse>(obj: IEndpoint) {
-  //   const url = this.apiUrl + obj.endpoint;
-  //   return this.http.get<T>(url, { params: obj.params });
-  // }
   public get apiUrl() {
     return 'http://' + environment.strapi_url;
   }
 
-  public getBlogPosts() {
-    return this.http.get(`${this.apiUrl}/blog-posts`);
+  // public get<T extends BaseEndpoint, T2 extends IBaseResponse>(type: (Endpoint<T>), query: string = '') {
+  //   const factory = new EndpointFactory();
+  //   const endpoint = factory.create<T>(type);
+
+  //   return this.http.get<T2[]>(`${this.apiUrl}/${endpoint.route}?${query}`).pipe(map(x => {
+  //     x.forEach(y => y.url = `/${endpoint.route}/${y.id}`);
+  //     return x;
+  //   }));
+  // }
+
+
+  public get<T>(url, query = '') {
+    return this.http.get<T>(`${this.apiUrl}/${url}?${query}`);
   }
 }
