@@ -8,8 +8,6 @@ $link-hover-color: $black !default;
   text-decoration: none;
   color: $link-color;
   cursor: pointer;
-  // needed everywhere? fixes underline hover
-  display: inline-block;
   position: relative;
 
   > a {
