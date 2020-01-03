@@ -41,13 +41,18 @@ function prepareImageUrl(url) {
 }
 
 function prepareImages(entity) {
-  entity.featured_image.url = prepareImageUrl(entity.featured_image.url);
+  if (entity.featured_image && entity.featured_image.url) {
+    entity.featured_image.url = prepareImageUrl(entity.featured_image.url);
+  }
 
   for (let i = 0; i < entity.post_dynamic.length; i++) {
     const element = entity.post_dynamic[i];
     if (element.media) {
       element.media.map(x => {
-        x.url = prepareImageUrl(x.url);
+        if (x.url) {
+          x.url = prepareImageUrl(x.url);
+        }
+
         return x;
       })
     }
