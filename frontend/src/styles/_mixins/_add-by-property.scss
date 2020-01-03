@@ -120,3 +120,21 @@
 {
     @include add-by-property($value, font-size)
 }
+
+/// adds margin by value and direction
+/// @param {List} $value sets the value for the margin.
+/// @param {List | string} $direction sets property for the direction the margin should be added to.
+/// the direction can be a List or a single direction.
+@mixin add-margin($value, $direction: null)
+{
+    @include add-by-property($value, margin, $direction);
+}
+
+/// adds padding by value and direction
+/// @param {List} $value sets the value for the margin.
+/// @param {List | string} $direction sets property for the direction the padding should be added to.
+/// the direction can be a List or a single direction.
+@mixin add-padding($value, $direction: null)
+{
+    @include add-by-property($value, padding, $direction);
+}

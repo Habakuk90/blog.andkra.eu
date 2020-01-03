@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { IBlogPost, Endpoints } from 'src/app/shared/http/endpoints';
+import { Endpoints } from 'src/app/shared/http/endpoints';
+import { IBlogPost } from '../../blog.response';
 
 @Component({
   selector: 'app-blog-post',
@@ -28,7 +29,6 @@ export class BlogPostComponent implements OnInit {
     const that = this;
     that.apiService.get<IBlogPost>(Endpoints.BlogPosts + slug).subscribe(response => {
       this.post = response;
-      console.log(response);
     });
   }
 }

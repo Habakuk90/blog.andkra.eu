@@ -1,0 +1,53 @@
+// credits to https://codelabs.developers.google.com/codelabs/angular-slider-element/index.html?index=..%2F..index#0
+@import "1atom/a-mixins";
+
+:host {
+  position: relative;
+  display: block;
+}
+
+.slider {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  max-height: 100%;
+
+  &__imageContainer {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 1s;
+
+    &.selected {
+      flex: 1 0 100%;
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    @include aspect-ratio-container(3, 2, cover);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__buttonContainer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    width: 60px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+
+    &:hover,
+    &.selected {
+      background-color: rgba(255, 255, 255, 1);
+      transition: background-color 0.4s, width 4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}

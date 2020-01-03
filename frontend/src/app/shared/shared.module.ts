@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -78,14 +79,14 @@ import { RouterModule } from '@angular/router';
     // FontAwesomeModule
   ],
   declarations: [
-
+    ImageSliderComponent
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
+    ImageSliderComponent
     // NgbModule,
     // FontAwesomeModule,
     // NgxMasonryModule,
