@@ -14,15 +14,12 @@
       "required": true,
       "unique": true
     },
-    "description": {
-      "type": "richtext"
-    },
     "post_dynamic": {
       "type": "dynamiczone",
       "components": [
-        "blog-post.images",
-        "blog-post.image",
-        "blog-post.text-block"
+        "blog-post.text-block",
+        "blog-post.image-collection",
+        "blog-post.image-single"
       ]
     },
     "blog_categories": {
@@ -34,6 +31,9 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

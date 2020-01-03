@@ -47,14 +47,21 @@ function prepareImages(entity) {
 
   for (let i = 0; i < entity.post_dynamic.length; i++) {
     const element = entity.post_dynamic[i];
-    if (element.media) {
-      element.media.map(x => {
-        if (x.url) {
-          x.url = prepareImageUrl(x.url);
-        }
 
-        return x;
-      })
+    if (element.media) {
+      if (element.media.map) {
+        element.media.map(x => {
+          if (x.url) {
+            x.url = prepareImageUrl(x.url);
+          }
+
+          return x;
+        })
+      }
+      else {
+        element.media.url = prepareImageUrl(element.media.url);
+      }
+
     }
   }
 

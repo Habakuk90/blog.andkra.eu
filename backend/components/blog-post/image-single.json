@@ -1,0 +1,17 @@
+{
+  "info": {
+    "name": "image_single",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_blog_post_image_singles"
+}

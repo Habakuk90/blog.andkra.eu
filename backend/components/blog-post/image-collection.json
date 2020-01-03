@@ -1,20 +1,17 @@
 {
   "info": {
-    "name": "image",
-    "icon": "image"
+    "name": "image_collection",
+    "icon": "images"
   },
   "options": {},
   "attributes": {
     "media": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
-    },
-    "caption": {
-      "type": "string"
     }
   },
   "connection": "default",
-  "collectionName": "components_blog_post_images"
+  "collectionName": "components_blog_post_image_collections"
 }
