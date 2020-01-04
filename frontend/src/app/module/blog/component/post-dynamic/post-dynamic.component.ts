@@ -10,19 +10,14 @@ import { IPostDynamic, IPostDynamicComponent, PostDynamicResolver } from './post
               </div>
             `
 })
-export class PostDynamicComponent implements OnInit, OnDestroy {
+export class PostDynamicComponent implements OnInit {
   @Input() content: IPostDynamic;
   @ViewChild(PostDynamicDirective, {static: true}) dynamicHost: PostDynamicDirective;
-  interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.loadComponent();
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.interval);
   }
 
   loadComponent() {
