@@ -4,7 +4,11 @@ FROM strapi/base
 WORKDIR /srv/app
 
 COPY ./package.json ./
-COPY ./package-lock.json ./
+# removed package-lock here because we are using a local provider for now
+# since it is referenced in plugin-upload. NPM package has to be updated
+# COPY ./package-lock.json ./
+# we have to copy providers/strapi-provider-upload-custom first, so it is available in npm install
+COPY ./providers/ ./providers
 
 RUN npm install
 
@@ -16,4 +20,4 @@ EXPOSE 1337
 
 ENV NODE_ENV production
 
-CMD ["yarn", "start"]
+CMD ["npm", "run", "start"]
