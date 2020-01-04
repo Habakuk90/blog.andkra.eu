@@ -8,7 +8,8 @@ import { IPostDynamic, IPostDynamicComponent, PostDynamicResolver } from './post
               <div class="postDynamic" [attr.data-post-dynamic]="content.__component">
                 <ng-template appPostDynamicHost></ng-template>
               </div>
-            `
+            `,
+  styles: ['.postDynamic { margin-bottom: 24px; }']
 })
 export class PostDynamicComponent implements OnInit {
   @Input() content: IPostDynamic;

@@ -25,7 +25,7 @@
   }
 
   &__image {
-    @include aspect-ratio-container(3, 2, cover);
+    @include aspect-ratio-container(3, 2, contain);
 
     img {
       max-width: 100%;
