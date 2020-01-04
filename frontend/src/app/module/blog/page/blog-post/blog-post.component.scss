@@ -8,6 +8,11 @@
 
   &__image {
     @include aspect-ratio-container(16, 7, cover, top);
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    margin-bottom: 24px;
   }
 }
 

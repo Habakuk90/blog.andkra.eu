@@ -1,3 +1,5 @@
+@import '0base/settings';
+
 @mixin display-grid() {
   display: grid;
   grid-template-rows: auto;
@@ -13,5 +15,23 @@
   .cols-#{$i} {
     @extend %grid-base;
     grid-template-columns: repeat($i, 1fr);
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-md-#{$i} {
+    @extend %grid-base;
+    @media #{$medium-only} {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-sm-#{$i} {
+    @extend %grid-base;
+    @media #{$small-only} {
+      grid-template-columns: repeat($i, 1fr);
+    }
   }
 }
