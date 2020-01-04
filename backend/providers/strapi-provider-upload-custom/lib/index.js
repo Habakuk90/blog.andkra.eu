@@ -8,7 +8,6 @@
 const fs = require('fs');
 const path = require('path');
 const jimp = require('jimp');
-
 /* eslint-disable no-unused-vars */
 module.exports = {
   provider: 'local',
@@ -25,7 +24,7 @@ module.exports = {
               var width = img.getWidth();
 
               img
-                .resize(width / 2, height / 2)
+                .resize(width / 3, height / 3)
                 .quality(60)
                 .write(path.join(strapi.config.public.path, `/uploads/${file.hash}${file.ext}`), (err, x) => {
                   if (err) return reject(err);
@@ -40,7 +39,7 @@ module.exports = {
                     file.size = rounded;
                   });
 
-                  // appedning server url
+                  // appending server url
                   const backendUrl = strapi.config.currentEnvironment.backendUrl;
                   const port = strapi.config.currentEnvironment.server.port;
                   file.url = `${backendUrl}:${port}/uploads/${file.hash}${file.ext}`;
