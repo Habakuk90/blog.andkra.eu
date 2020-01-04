@@ -9,12 +9,14 @@ import { PostDynamicComponent } from './component/post-dynamic/post-dynamic.comp
 import { PostDynamicImageCollectionComponent } from './component/post-dynamic/dynamic-components/blog-post.image-collection.component';
 import { PostDynamicImageSingleComponent } from './component/post-dynamic/dynamic-components/blog-post.image-single.component';
 import { PostDynamicTextBlockComponent } from './component/post-dynamic/dynamic-components/blog-post.text-block.component';
+import { BlogCategoriesComponent } from './component/blog-categories/blog-categories.component';
 
 @NgModule({
   declarations: [
     BlogComponent,
     BlogTeaserComponent,
     BlogPostComponent,
+    BlogCategoriesComponent,
     PostDynamicComponent,
     PostDynamicDirective,
     PostDynamicImageCollectionComponent,

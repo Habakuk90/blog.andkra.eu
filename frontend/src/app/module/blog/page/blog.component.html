@@ -1,4 +1,7 @@
 <section class="blog">
+  <div>
+    <app-blog-categories (categorySelected)="onCategorySelected($event)"></app-blog-categories>
+  </div>
   <ul class="o-teaserList cols-3 cols-sm-1 cols-md-1">
     <li class="o-teaserList__element" *ngFor="let post of posts; trackById">
       <app-blog-teaser [post]="post"></app-blog-teaser>

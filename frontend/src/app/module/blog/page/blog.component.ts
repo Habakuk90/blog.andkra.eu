@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { Endpoints } from 'src/app/shared/http/endpoints';
 import { Router } from '@angular/router';
-import { IBlogPost } from '../blog.response';
+import { IBlogPost, IBlogCategories } from '../blog.response';
 
 @Component({
   selector: 'app-blog',
@@ -17,11 +17,20 @@ export class BlogComponent implements OnInit {
   get() {
     this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts).subscribe(response => {
       this.posts = response;
-      this.posts.forEach(x => x.url = `${this.router.url}/${x.id}`);
+      this.addRouterUrl();
     });
+  }
+
+  onCategorySelected(e) {
+    this.posts = e;
+    this.addRouterUrl();
   }
 
   ngOnInit(): void {
     this.get();
+  }
+
+  private addRouterUrl(): void {
+    this.posts.forEach(x => x.url = `${this.router.url}/${x.id}`);
   }
 }

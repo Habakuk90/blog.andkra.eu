@@ -1,15 +1,24 @@
+import { IPostDynamic } from './component/post-dynamic/post-dynamic';
+
 export interface IBaseResponse {
   id: number;
   url: string;
+  updated_at: string;
+  created_at: string;
 }
 
 export interface IBlogPost extends IBaseResponse {
   title: string;
   description: string;
-  updated_at: string;
-  created_at: string;
   featured_image: IImage;
-  post_dynamic: Array<any>;
+  post_dynamic: Array<IPostDynamic>;
+  blog_categories: IBlogCategories[];
+}
+
+export interface IBlogCategories extends IBaseResponse {
+  blog_posts: IBlogPost[];
+  name: string;
+  selected: boolean;
 }
 
 export interface IImage {

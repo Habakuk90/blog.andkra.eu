@@ -1,0 +1,23 @@
+.m-filter {
+  &__list {
+    list-style-type: none;
+  }
+
+  &__button {
+    padding: .5rem 1rem;
+    height: auto;
+    margin: .3125rem;
+    text-align: center;
+    background: transparent;
+    border: .0625rem solid #000;
+    color:#515151;
+    border-radius: .1875rem;
+    display: inline-block;
+    cursor: pointer;
+
+    &.selected {
+      background-color: black;
+      color: white;
+    }
+  }
+}

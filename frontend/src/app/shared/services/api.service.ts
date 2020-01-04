@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService extends BaseService {
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient) {
     super();
   }
 
