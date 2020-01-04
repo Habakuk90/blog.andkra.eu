@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { IBlogPost, Endpoints } from 'src/app/shared/http/endpoints';
+import { Endpoints } from 'src/app/shared/http/endpoints';
 import { Router } from '@angular/router';
+import { IBlogPost } from '../blog.response';
 
 @Component({
   selector: 'app-blog',

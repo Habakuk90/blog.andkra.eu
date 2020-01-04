@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IBlogPost } from 'src/app/shared/http/endpoints';
+import { IBlogPost } from '../../blog.response';
 
 @Component({
   selector: 'app-blog-teaser',

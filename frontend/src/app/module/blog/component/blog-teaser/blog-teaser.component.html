@@ -1,15 +1,12 @@
 <a class="a-link" [routerLink]="post.url">
   <div class="m-card__image">
-    <img [src]="post.featured_image.url" alt="">
+    <img [src]="post.featured_image?.url" alt="">
   </div>
-  <h3 class="m-card__title">{{ post.title }}</h3>
-  <div class="m-card__date">
-    {{post.created_at | date: 'mediumDate' }}
-  </div>
+  <div class="m-card__title">{{ post.title }}</div>
   <div class="m-card__teaserText">
     {{post.description}}
   </div>
-  <div class="m-card__linkText">
-    read more
+  <div class="m-card__date">
+    {{post.created_at | date: 'mediumDate' }}
   </div>
 </a>

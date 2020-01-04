@@ -1,0 +1,16 @@
+<!-- credits to https://codelabs.developers.google.com/codelabs/angular-slider-element/index.html?index=..%2F..index#0 -->
+
+<div class="container slider">
+  <div class="slider__imageContainer" [ngClass]="{'selected': select == selectedIndex}"
+    *ngFor="let image of sliderArray; let select = index;">
+    <div class="slider__image">
+      <img src="{{image.url}}" alt="" />
+    </div>
+  </div>
+</div>
+
+<div class="slider__buttonContainer">
+  <div class="slider__button" *ngFor="let i of sliderArray; let x =index" (click)="selected(x)"
+    (keypress)="keySelected(x)" [ngClass]="{'selected': x === selectedIndex}">
+  </div>
+</div>

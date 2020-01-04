@@ -5,6 +5,9 @@
     "module": "esnext",
     "types": ["node"]
   },
+  "files": [
+    "typings.d.ts"
+  ],
   "angularCompilerOptions": {
     "enableIvy": true,
     "allowEmptyCodegenFiles": true
