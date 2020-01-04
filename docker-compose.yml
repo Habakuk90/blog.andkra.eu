@@ -6,9 +6,8 @@ services:
     image: wahnsinnshub/blog.andkra.eu.backend
     build:
       context: ./backend
-      dockerfile: DOCKERFILE
+      dockerfile: Dockerfile
     environment:
-      - NODE_ENV=production
       - DATABASE_CLIENT=mysql
       - DATABASE_HOST=db
       - DATABASE_PORT=3306
