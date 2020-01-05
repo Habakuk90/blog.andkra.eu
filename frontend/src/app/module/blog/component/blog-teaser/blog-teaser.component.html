@@ -6,7 +6,13 @@
   <div class="m-card__teaserText">
     {{post.description}}
   </div>
-  <div class="m-card__date">
-    {{post.created_at | date: 'mediumDate' }}
+  <div class="m-card__labelWrapper">
+    <div *ngFor="let category of post.blog_categories" class="m-card__categories">
+      <label>{{category.name.toLocaleUpperCase()}}</label>
+    </div>
+    <div class="m-card__date">
+      {{post.created_at | date: 'mediumDate' }}
+    </div>
   </div>
+
 </a>

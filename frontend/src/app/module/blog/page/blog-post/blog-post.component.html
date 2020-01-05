@@ -6,9 +6,9 @@
     <div class="blog-post__image">
       <img class="a-image" [src]="post?.featured_image?.url" alt="">
     </div>
-    <div class="blog-post__description">
+    <p class="blog-post__description">
       {{post?.description}}
-    </div>
+    </p>
     <ng-container *ngFor="let dynamic of post?.post_dynamic; trackById">
       <app-post-dynamic [content]="dynamic"></app-post-dynamic>
     </ng-container>

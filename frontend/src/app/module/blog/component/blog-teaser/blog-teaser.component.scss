@@ -12,11 +12,40 @@
 
 .m-card {
   &__date {
-    text-align: right;
+    margin-left: auto;
+  }
+
+  &__image {
+    margin-bottom: 10px;
   }
 
   &__title {
     font-weight: bold;
     font-size: 1.125rem;
+
+    margin-bottom: 10px;
+  }
+
+  &__teaserText {
+    margin-bottom: 10px;
+  }
+
+  &__labelWrapper {
+    display: flex;
+  }
+
+  &__categories {
+    height: auto;
+    margin-right: 0.3125rem;
+    margin-bottom: .3125rem;
+    text-align: center;
+    background: transparent;
+    border: 0.0625rem solid #000;
+    color: #515151;
+    border-radius: 3px;
+
+    label {
+      padding: 6px;
+    }
   }
 }
