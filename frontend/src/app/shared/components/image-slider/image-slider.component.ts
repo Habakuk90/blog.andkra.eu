@@ -7,7 +7,7 @@ import { IImage } from '../../http/response';
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  // encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ImageSliderComponent implements OnInit {
   selectedIndex = 0;
@@ -27,5 +27,9 @@ export class ImageSliderComponent implements OnInit {
 
    keySelected(x) {
     this.selectedIndex = x;
+  }
+
+  imageClick() {
+    this.selectedIndex = this.selectedIndex >= this.sliderArray.length - 1 ? 0 : this.selectedIndex + 1;
   }
 }
