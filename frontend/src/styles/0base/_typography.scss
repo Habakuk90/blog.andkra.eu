@@ -118,9 +118,9 @@ $line-height-h4: (
 //   sm: $font-size-h6-sm
 // );
 
-$font-size-p-lg: 22px;
-$font-size-p-md: 22px;
-$font-size-p-sm: 22px;
+$font-size-p-lg: 1.375rem;
+$font-size-p-md: 1.375rem;
+$font-size-p-sm: 1.375rem;
 
 $font-size-p: (
   lg: $font-size-p-lg,
@@ -206,7 +206,9 @@ strong {
 small {
   font-size: 75%;
 }
-
+p {
+  @include add-font-size($font-size-p);
+}
 
 .light {
   font-weight: 300;
