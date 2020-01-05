@@ -13,6 +13,6 @@ export class HeaderComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.get<INavigation>(`${Endpoints.Navigations}1`).subscribe(x => {this.navigation = x; console.log(x)});
+    this.apiService.get<INavigation>(`${Endpoints.Navigations}1`).subscribe(x => this.navigation = x);
   }
 }
