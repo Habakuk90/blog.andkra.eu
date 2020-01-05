@@ -17,7 +17,7 @@ export class BlogCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.get<IBlogCategories[]>(Endpoints.BlogCategories)
-      .subscribe(x => { this.categories = x; console.log(x); });
+      .subscribe(x => this.categories = x);
   }
 
   onCategoryClick(e: IBlogCategories) {

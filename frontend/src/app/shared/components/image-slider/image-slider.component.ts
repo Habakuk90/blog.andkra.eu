@@ -1,7 +1,8 @@
 // credits to https://codelabs.developers.google.com/codelabs/angular-slider-element/index.html?index=..%2F..index#0
 
 import { Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
-import { IImage } from 'src/app/module/blog/blog.response';
+import { IImage } from '../../http/response';
+
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',

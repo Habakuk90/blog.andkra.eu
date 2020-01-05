@@ -2,7 +2,7 @@ import { PostDynamicImageCollectionComponent } from './dynamic-components/blog-p
 import { PostDynamicTextBlockComponent } from './dynamic-components/blog-post.text-block.component';
 import { PostDynamicImageSingleComponent } from './dynamic-components/blog-post.image-single.component';
 import { Type } from '@angular/core';
-import { IImage } from '../../blog.response';
+import { IImage } from 'src/app/shared/http/response';
 
 export interface IPostDynamicComponent {
   data: IPostDynamic;
