@@ -1,0 +1,6 @@
+<ul class="m-filter__list">
+  <li class="m-filter__button" *ngFor="let category of categories; trackById" (click)="onCategoryClick(category)"
+    [ngClass]="{'selected': category.selected}">
+    {{category.name.toLocaleUpperCase()}}
+  </li>
+</ul>

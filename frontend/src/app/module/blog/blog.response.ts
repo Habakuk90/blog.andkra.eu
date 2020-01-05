@@ -1,23 +1,17 @@
-export interface IBaseResponse {
-  id: number;
-  url: string;
-}
+import { IPostDynamic } from './component/post-dynamic/post-dynamic';
+import { IBaseResponse, IImage } from 'src/app/shared/http/response';
 
 export interface IBlogPost extends IBaseResponse {
   title: string;
+  url: string;
   description: string;
-  updated_at: string;
-  created_at: string;
   featured_image: IImage;
-  post_dynamic: Array<any>;
+  post_dynamic: IPostDynamic[];
+  blog_categories: IBlogCategories[];
 }
 
-export interface IImage {
-  created_at: string;
-  ext: string;
-  hash: string;
-  id: number;
-  mime: string;
+export interface IBlogCategories extends IBaseResponse {
+  blog_posts: IBlogPost[];
   name: string;
-  url: string;
+  selected: boolean;
 }

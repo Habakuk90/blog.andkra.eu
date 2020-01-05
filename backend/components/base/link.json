@@ -1,0 +1,24 @@
+{
+  "connection": "default",
+  "collectionName": "components_base_links",
+  "info": {
+    "name": "link",
+    "icon": "external-link-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "icon_class": {
+      "type": "string"
+    }
+  }
+}

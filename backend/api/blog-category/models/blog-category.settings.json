@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "blog_categories",
   "info": {
-    "name": "Blog_category"
+    "name": "Blog Category"
   },
   "options": {
     "increments": true,
@@ -13,8 +13,8 @@
       "type": "string"
     },
     "blog_posts": {
-      "via": "blog_categories",
       "collection": "blog-post",
+      "via": "blog_categories",
       "dominant": true
     }
   }

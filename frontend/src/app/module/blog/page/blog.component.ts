@@ -17,11 +17,20 @@ export class BlogComponent implements OnInit {
   get() {
     this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts).subscribe(response => {
       this.posts = response;
-      this.posts.forEach(x => x.url = `${this.router.url}/${x.id}`);
+      this.addRouterUrl();
     });
+  }
+
+  onCategorySelected(e) {
+    this.posts = e;
+    this.addRouterUrl();
   }
 
   ngOnInit(): void {
     this.get();
+  }
+
+  private addRouterUrl(): void {
+    this.posts.forEach(x => x.url = `${this.router.url}/${x.id}`);
   }
 }

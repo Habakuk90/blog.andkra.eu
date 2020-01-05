@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "navigations",
+  "info": {
+    "name": "navigation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.link"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

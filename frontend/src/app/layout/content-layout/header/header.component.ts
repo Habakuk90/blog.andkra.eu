@@ -1,26 +1,18 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { INavigation } from './header.response';
+import { Endpoints } from 'src/app/shared/http/endpoints';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  public navigation: any = [
-    {
-      url: '/',
-      label: 'home'
-    },
-    {
-      url: '/blog',
-      label: 'blog'
-    }
-  ];
-  constructor() { }
+export class HeaderComponent implements OnInit {
+  navigation: INavigation;
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-  }
-
-  ngOnDestroy() {
+    this.apiService.get<INavigation>(`${Endpoints.Navigations}1`).subscribe(x => this.navigation = x);
   }
 }

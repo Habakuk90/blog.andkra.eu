@@ -7,8 +7,17 @@
   }
 
   &__image {
-    @include aspect-ratio-container(16, 7, cover, top);
+    @include aspect-ratio-container(16, 9, cover, top) {
+      img {
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+    };
     margin-bottom: 24px;
+
   }
 
   &__description {
