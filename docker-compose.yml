@@ -16,6 +16,8 @@ services:
       - DATABASE_PASSWORD=strapi
     ports:
       - 1337:1337
+    volumes:
+      - ./strapi/app/public/uploads:/srv/app/public/uploads
     depends_on:
       - db
   blog_app:

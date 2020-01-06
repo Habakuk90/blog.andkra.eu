@@ -1,8 +1,10 @@
 <!-- credits to https://codelabs.developers.google.com/codelabs/angular-slider-element/index.html?index=..%2F..index#0 -->
-
+<div class="h2-style" style="text-align: center;" (click)="imageClick()">
+    Click me!
+</div>
 <div class="container slider">
   <div class="slider__imageContainer" [ngClass]="{'selected': select == selectedIndex}"
-    *ngFor="let image of sliderArray; let select = index;">
+    *ngFor="let image of sliderArray; let select = index;" (click)="imageClick()">
     <div class="slider__image">
       <img src="{{image.url}}" alt="" />
     </div>
