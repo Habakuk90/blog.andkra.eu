@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { Endpoints } from 'src/app/shared/http/endpoints';
 import { IBlogPost, IBlogCategories } from '../../blog.response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-categories',
@@ -10,8 +11,8 @@ import { IBlogPost, IBlogCategories } from '../../blog.response';
 })
 export class BlogCategoriesComponent implements OnInit {
   categories: IBlogCategories[];
-  @Output() categorySelected: EventEmitter<IBlogPost[]> = new EventEmitter<IBlogPost[]>();
-
+  selectedCategories: string[] = [];
+  @Output() categorySelected: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   constructor(private apiService: ApiService) { }
 
@@ -22,24 +23,12 @@ export class BlogCategoriesComponent implements OnInit {
 
   onCategoryClick(e: IBlogCategories) {
     e.selected = !e.selected;
-
-    const selectedCategorys = this.categories.filter(x => x.selected);
-    let arr: IBlogPost[][];
-    let blogPosts = [];
-
-    if (selectedCategorys.length < 1) {
-      arr = this.categories.map(x => x.blog_posts);
+    if (e.selected) {
+      this.selectedCategories.push(e.name);
     } else {
-      arr = selectedCategorys.map(x => x.blog_posts);
+      this.selectedCategories = this.selectedCategories.filter(x => x !== e.name);
     }
 
-    for (let i = 0; i < arr.length; i++) {
-      blogPosts = blogPosts.concat(arr[i]);
-      blogPosts.sort((a, b) => {
-        return a.created_at > b.created_at ? 1 : 0;
-      });
-    }
-
-    this.categorySelected.emit(blogPosts);
+    this.categorySelected.emit(this.selectedCategories);
   }
 }

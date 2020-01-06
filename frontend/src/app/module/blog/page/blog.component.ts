@@ -14,16 +14,26 @@ export class BlogComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {
   }
 
-  get() {
-    this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts).subscribe(response => {
+  get(query = '') {
+    this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts, query).subscribe(response => {
       this.posts = response;
       this.addRouterUrl();
     });
   }
 
-  onCategorySelected(e) {
-    this.posts = e;
-    this.addRouterUrl();
+  onCategorySelected(e: string[]) {
+    if (e.length < 1) {
+      this.get();
+    } else {
+      const queryKey = 'blog_categories.name';
+      let query = '';
+
+      e.forEach(x => {
+        query += `${queryKey}=${x}&`;
+      });
+
+      this.get(query);
+    }
   }
 
   ngOnInit(): void {
