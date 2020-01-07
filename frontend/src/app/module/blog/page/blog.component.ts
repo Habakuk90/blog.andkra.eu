@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
 
   get(query = '') {
     this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts, query).subscribe(response => {
-      this.posts = response;
+      this.posts = response.filter(x => !x.draft);
       this.addRouterUrl();
     });
   }

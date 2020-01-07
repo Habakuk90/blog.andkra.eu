@@ -8,6 +8,7 @@ export interface IBlogPost extends IBaseResponse {
   featured_image: IImage;
   post_dynamic: IPostDynamic[];
   blog_categories: IBlogCategories[];
+  draft: boolean;
 }
 
 export interface IBlogCategories extends IBaseResponse {

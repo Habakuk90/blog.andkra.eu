@@ -23,8 +23,8 @@
       ]
     },
     "blog_categories": {
-      "via": "blog_posts",
-      "collection": "blog-category"
+      "collection": "blog-category",
+      "via": "blog_posts"
     },
     "featured_image": {
       "model": "file",
@@ -34,6 +34,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "draft": {
+      "type": "boolean"
     }
   }
 }

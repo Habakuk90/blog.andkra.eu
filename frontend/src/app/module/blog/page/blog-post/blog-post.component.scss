@@ -1,4 +1,4 @@
-@import '1atom/a-mixins';
+@import "1atom/a-mixins";
 
 .blog-post {
   &__title {
@@ -15,13 +15,15 @@
         margin-left: -50vw;
         margin-right: -50vw;
       }
-    };
+    }
     margin-bottom: 24px;
-
   }
 
   &__description {
     margin-bottom: 24px;
+    max-width: 1040px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
-
