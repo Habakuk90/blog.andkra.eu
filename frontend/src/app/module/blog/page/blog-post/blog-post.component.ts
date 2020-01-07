@@ -33,6 +33,7 @@ export class BlogPostComponent implements OnInit {
         this.router.navigate(['/blog']);
       }
       this.post = response;
+      this.titleService.setTitle(response.title);
     });
   }
 }
