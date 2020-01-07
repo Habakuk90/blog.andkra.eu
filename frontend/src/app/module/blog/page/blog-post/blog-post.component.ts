@@ -29,7 +29,7 @@ export class BlogPostComponent implements OnInit {
   get(slug: string) {
     const that = this;
     that.apiService.get<IBlogPost>(Endpoints.BlogPosts + slug).subscribe(response => {
-      if(response.draft) {
+      if (response.draft) {
         this.router.navigate(['/blog']);
       }
       this.post = response;
