@@ -4,7 +4,7 @@ import { IPostDynamicImageSingle, IPostDynamicComponent } from '../post-dynamic'
 @Component({
   template: `
     <div class="postDynamic__image">
-      <img [src]="data.media?.url" alt="{{data.media.caption}}">
+      <img [src]="data.media?.url" alt="{{data.caption}}">
     </div>
   `,
   styleUrls: ['../post-dynamic.component.scss']
