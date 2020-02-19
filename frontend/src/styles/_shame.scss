@@ -25,8 +25,8 @@ $border-tictactoe: 5px solid black;
   .postDynamic {
 
 
-    h2 {
-      line-height: 38px;
+    h2, h1 {
+      margin-bottom: 15px;
     }
 
     ul,
@@ -47,7 +47,7 @@ $border-tictactoe: 5px solid black;
     a {
       @extend .a-link !optional;
       color: $color-main-sec-dark;
-
+      display: inline-block;
       &:hover {
         color: $color-main-sec;
       }

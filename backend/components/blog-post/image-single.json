@@ -13,7 +13,7 @@
       "plugin": "upload",
       "required": false
     },
-    "Caption": {
+    "caption": {
       "type": "string"
     }
   }

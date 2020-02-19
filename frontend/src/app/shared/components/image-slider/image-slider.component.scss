@@ -26,13 +26,7 @@
   }
 
   &__image {
-    @include aspect-ratio-container(16 / 2, 9 / 2, cover, top) {
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    };
-
+    @include aspect-ratio-container(16, 9, cover); 
     margin-bottom: 24px;
   }
   

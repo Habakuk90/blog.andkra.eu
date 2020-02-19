@@ -4,7 +4,7 @@
   margin-bottom: 24px;
 
   // TODO: see blog-post.component.scss
-  &__image, .slider__image {
+  &__image {
     @include aspect-ratio-container(16, 9, cover, top) {
       img {
         width: 100vw;
