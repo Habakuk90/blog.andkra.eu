@@ -5,6 +5,10 @@
   },
   "public": {
     "path": "./public",
-    "maxAge": 60000
+    "maxAge": 86400000
+  },
+  "build": {
+    "path": "./build",
+    "maxAge": 86400000
   }
 }

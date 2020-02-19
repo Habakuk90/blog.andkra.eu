@@ -1,3 +1,34 @@
+@import "1atom/a-mixins";
+
 .postDynamic {
   margin-bottom: 24px;
+
+  // TODO: see blog-post.component.scss
+  &__image {
+    @include aspect-ratio-container(16, 9, cover, top) {
+      img {
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+    }
+    margin-bottom: 24px;
+  }
+
+  &__textBlock { 
+    max-width: 1040px; margin-left: auto; margin-right: auto;
+  }
+
+  &__imageCollection {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 1s;
+
+    &.selected {
+      flex: 1 0 100%;
+      opacity: 1;
+    }
+  }
 }

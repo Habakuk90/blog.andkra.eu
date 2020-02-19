@@ -26,13 +26,10 @@
   }
 
   &__image {
-    @include aspect-ratio-container(3, 2, contain);
-
-    img {
-      max-width: 100%;
-    }
+    @include aspect-ratio-container(16, 9, cover); 
+    margin-bottom: 24px;
   }
-
+  
   &__buttonContainer {
     background-color: black;
     display: flex;
