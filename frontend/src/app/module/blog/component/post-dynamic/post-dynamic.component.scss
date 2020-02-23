@@ -5,7 +5,7 @@
 
   // TODO: see blog-post.component.scss
   &__image {
-    @include aspect-ratio-container(16, 9, cover, top) {
+    @include aspect-ratio-container(16, 9, cover) {
       img {
         width: 100vw;
         left: 50%;
