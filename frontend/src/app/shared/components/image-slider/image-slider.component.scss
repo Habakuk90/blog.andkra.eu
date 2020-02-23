@@ -26,7 +26,7 @@
   }
 
   &__image {
-    @include aspect-ratio-container(16, 7, cover); 
+    @include aspect-ratio-container(16, 9, contain); 
     margin-bottom: 24px;
   }
   
