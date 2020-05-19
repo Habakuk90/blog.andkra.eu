@@ -1,0 +1,64 @@
+@import "1atom/a-mixins";
+
+:host {
+  display: block;
+}
+
+.open-close-container {
+  border: 1px solid #dddddd;
+  margin-top: 1em;
+  padding: 20px 20px 0px 20px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+body {
+  background: grey;
+}
+#imgContainer {
+  position: relative;
+  margin: 30px;
+  width: 200px;
+}
+
+#imgContainer li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  list-style: none;
+  visibility: hidden;
+}
+h1 {
+  position: absolute;
+  font-family: sans-serif;
+  color: white;
+  padding-left: 5px;
+}
+.motiv h1 {
+  margin: 0;
+  padding-left: 5px;
+  font-family: sans-serif;
+  line-height: 170px;
+  color: white;
+}
+#imgContainer li:first-child {
+  visibility: visible;
+}
+
+
+
+.motiv00 {
+  background: green;
+}
+.motiv01 {
+  background: blue;
+}
+.motiv02 {
+  background: red;
+}
+.motiv03 {
+  background: green;
+}
