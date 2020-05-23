@@ -1,6 +1,9 @@
-import { Component, OnDestroy, OnInit, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnDestroy,
+  OnInit
+} from "@angular/core";
 
-import { ActivatedRoute } from "@angular/router";
 import {
   trigger,
   state,
@@ -9,89 +12,80 @@ import {
   transition,
   // ...
 } from "@angular/animations";
+import { ApiService } from "src/app/shared/services/api.service";
+import { Endpoints } from "src/app/shared/http/endpoints";
+import { IAboutDetailPage } from '../about.response';
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrls: ["./about.component.scss"],
   animations: [
-    trigger("openClose", [
-      // ...
-      state(
-        "open",
-        style({
-          height: "200px",
-          opacity: 1,
-          backgroundColor: "yellow",
-        })
-      ),
-      state(
-        "closed",
-        style({
-          height: "100px",
-          opacity: 0.5,
-          backgroundColor: "green",
-        })
-      ),
-      transition("open => closed", [animate("1s")]),
-      transition("closed => open", [animate("0.5s")]),
-    ]),
-    trigger("slideInOut", [
-      transition(":enter", [
-        style({ transform: "translateY(-100%)" }),
-        animate("200ms ease-in", style({ transform: "translateY(0%)" })),
+    trigger('myInsertRemoveTrigger', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1000ms', style({ opacity: 1 })),
       ]),
-      transition(":leave", [
-        animate("200ms ease-in", style({ transform: "translateY(-100%)" })),
-      ]),
-      state(
-        "open",
-        style({
-          height: "200px",
-          opacity: 1,
-        })
-      ),
-      state(
-        "closed",
-        style({
-          height: "100px",
-          opacity: 0.5,
-        })
-      ),
+      transition(':leave', [
+        animate('1000ms', style({ opacity: 0 }))
+      ])
     ]),
   ],
 })
 export class AboutComponent implements OnInit, OnDestroy {
   title: string;
-  // protected slug$: Observable<string>;
-  slides: Array<any> = [
-    {
-      id: 0,
-    },
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-  ];
-
-  isActive: boolean = true;
-  counter: number = 0;
-  constructor(private route: ActivatedRoute, element: ElementRef) {}
+  aboutDetails: IAboutDetailPage[] = [];
+  slideIndex: number = 0;
+  constructor(private api: ApiService) {}
 
   ngOnInit() {
     // this.slug$ = this.route.paramMap.pipe(map(params => (params.get('slug'))));
     // this.slug$.pipe(take(1)).subscribe(slug => this.get());
+
+    this.api.get<IAboutDetailPage[]>(Endpoints.AboutDetail).subscribe(
+      (x) => (this.aboutDetails = x),
+      (error) => {
+        console.log(error);
+        this.aboutDetails.push(
+          {
+            id: 0,
+            title: "1200x720",
+            created_at: "today",
+            updated_at: "today",
+            logo: { url: "https://via.placeholder.com/1200x720" },
+          },
+          {
+            id: 1,
+            title: "250x",
+            created_at: "today",
+            updated_at: "today",
+            logo: { url: "https://via.placeholder.com/250x250" },
+          },
+          {
+            id: 2,
+            title: "2860x123",
+            created_at: "today",
+            updated_at: "today",
+            logo: { url: "https://via.placeholder.com/2860x123" },
+          }
+        );
+      }
+    );
   }
 
   get(): void {
     const that = this;
   }
-  isOpen: boolean = true;
-  toggle() {
-    this.isOpen = !this.isOpen;
-    this.counter < 2 ? this.counter++ : this.counter = 0;
+
+  slide(event: Event) {
+    let isRight = (event.target as HTMLElement).classList.contains("right");
+    let length = this.aboutDetails.length;
+
+    if (isRight) {
+      this.slideIndex + 1 >= length ? (this.slideIndex = 0) : this.slideIndex++;
+    } else {
+      this.slideIndex <= 0 ? (this.slideIndex = length - 1) : this.slideIndex--;
+    }
   }
 
   ngOnDestroy() {

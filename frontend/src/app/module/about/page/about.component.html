@@ -1,21 +1,10 @@
 <section class="home">
-  <div>Hello from about!</div>
+  <span class="arrow left"(click)="slide($event)"><</span>
 
-  <div
-    (click)="toggle()"
-    [@openClose]="isOpen ? 'open' : 'closed'"
-    class="open-close-container"
-  >
-    <p>The box is now {{ isOpen ? "Open" : "Closed" }}!</p>
-  </div>
+  <ng-container *ngFor="let details of aboutDetails; index as i">
+    <app-about-detail @myInsertRemoveTrigger *ngIf="details.id === slideIndex" [details]="details"></app-about-detail>
+  </ng-container>
 
-  <div id="imgContainer">
-   <ng-container  *ngFor="let item of slides; index as i">
-    {{counter}} {{i}}
-    <li *ngIf="counter === i" [attr.data-index]="i" 
-       [@slideInOut]="counter === i ? 'open' : 'closed'" class="motiv motiv0{{i}}">
-        <h1>ONE</h1>
-      </li>
-   </ng-container>
-  </div>
+  <span class="arrow right" (click)="slide($event)">></span>
+
 </section>
