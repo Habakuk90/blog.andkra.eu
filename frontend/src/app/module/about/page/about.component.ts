@@ -1,8 +1,4 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit
-} from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 
 import {
   trigger,
@@ -10,27 +6,22 @@ import {
   style,
   animate,
   transition,
+  query,
+  stagger,
+  group,
+  sequence,
   // ...
 } from "@angular/animations";
 import { ApiService } from "src/app/shared/services/api.service";
 import { Endpoints } from "src/app/shared/http/endpoints";
-import { IAboutDetailPage } from '../about.response';
+import { IAboutDetailPage } from "../about.response";
+import { carouselAnimation } from '../carousel.animations';
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrls: ["./about.component.scss"],
-  animations: [
-    trigger('myInsertRemoveTrigger', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('1000ms', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        animate('1000ms', style({ opacity: 0 }))
-      ])
-    ]),
-  ],
+  // animations: [carouselAnimation]
 })
 export class AboutComponent implements OnInit, OnDestroy {
   title: string;
@@ -52,7 +43,7 @@ export class AboutComponent implements OnInit, OnDestroy {
             title: "1200x720",
             created_at: "today",
             updated_at: "today",
-            logo: { url: "https://via.placeholder.com/1200x720" },
+            logo: { url: "https://via.placeholder.com/2000x1240" },
           },
           {
             id: 1,
@@ -66,9 +57,25 @@ export class AboutComponent implements OnInit, OnDestroy {
             title: "2860x123",
             created_at: "today",
             updated_at: "today",
-            logo: { url: "https://via.placeholder.com/2860x123" },
+            logo: { url: "https://via.placeholder.com/100x100" },
+          },
+          {
+            id: 3,
+            title: "2860x123",
+            created_at: "today",
+            updated_at: "today",
+            logo: { url: "https://via.placeholder.com/100x100" },
+          },
+          {
+            id: 4,
+            title: "2860x123",
+            created_at: "today",
+            updated_at: "today",
+            logo: { url: "https://via.placeholder.com/100x100" },
           }
         );
+
+        this.changeCarousel();
       }
     );
   }
@@ -76,11 +83,23 @@ export class AboutComponent implements OnInit, OnDestroy {
   get(): void {
     const that = this;
   }
+oldAngle: number;
+  next() {
+    this.slideIndex++;
+    this.oldAngle = this.carouselAngle;
+    this.carouselAngle = this.alpha * this.slideIndex;
 
+  }
+
+  prev() {
+    this.slideIndex--;
+    this.carouselAngle = this.alpha * this.slideIndex;
+  }
+
+  carouselAngle: number = 0;
   slide(event: Event) {
     let isRight = (event.target as HTMLElement).classList.contains("right");
     let length = this.aboutDetails.length;
-
     if (isRight) {
       this.slideIndex + 1 >= length ? (this.slideIndex = 0) : this.slideIndex++;
     } else {
@@ -88,6 +107,18 @@ export class AboutComponent implements OnInit, OnDestroy {
     }
   }
 
+  radius = 0;
+  alpha: number;
+
+  changeCarousel() {
+    this.alpha = 360 / this.aboutDetails.length;
+    let cellSize = (<HTMLElement>document.querySelector(".carouselContainer"))
+      .offsetWidth;
+
+    this.radius = Math.round(
+      cellSize / 2 / Math.tan(Math.PI / this.aboutDetails.length)
+    );
+  }
   ngOnDestroy() {
     // fix me, have to call it in every HubComponent
   }

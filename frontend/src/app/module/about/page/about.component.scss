@@ -4,7 +4,56 @@
   display: block;
 }
 
-.home {
+.about {
+  &__intro-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+
+  &__intro {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    perspective: 1000px;
+  }
+
+  &__cell {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cell {
+      &__content {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      &__image {
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+  }
+
   span {
     user-select: none;
   }
@@ -12,6 +61,8 @@
   .arrow {
     position: absolute;
     top: 50%;
+    font-size: 200px;
+    z-index: 1;
 
     &.right {
       right: 0;
@@ -21,4 +72,12 @@
       left: 0;
     }
   }
+}
+
+.carouselContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
