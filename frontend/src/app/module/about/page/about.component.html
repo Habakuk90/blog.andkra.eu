@@ -5,7 +5,7 @@
     <div class="about__intro">
       <div
         class="carouselContainer"
-        [style.transform]="'translateZ(-' + radius + 'px) rotateY('+ -this.carouselAngle + 'deg)' "
+        [style.transform]="'translateZ(-' + radius + 'px) rotate3d(0,1,0,'+ -this.carouselAngle + 'deg) rotateX('+ axisX +'deg) rotateZ('+ axisZ + 'deg)'"
 
       >
         <!-- <app-about-detail [style.transform]="'translateZ('+ radius + 'px) rotateY(' + alpha * i + 'deg)'"
@@ -15,9 +15,7 @@
 
         <div
           class="about__cell"
-          [style.transform]="
-            'rotateY(' + alpha * i + 'deg) translateZ(' + radius + 'px)'
-          "
+          [style.transform]="'rotateY(' + alpha * i + 'deg) translateZ(' + radius + 'px)'"
           *ngFor="let details of aboutDetails; index as i"
         >
         <div class="cell__content">

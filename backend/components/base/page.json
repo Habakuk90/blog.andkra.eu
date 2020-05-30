@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "Page",
+    "icon": "file-code"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_base_pages"
+}

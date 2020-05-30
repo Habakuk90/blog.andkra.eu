@@ -10,18 +10,21 @@ import {
   stagger,
   group,
   sequence,
+  useAnimation,
   // ...
 } from "@angular/animations";
 import { ApiService } from "src/app/shared/services/api.service";
 import { Endpoints } from "src/app/shared/http/endpoints";
 import { IAboutDetailPage } from "../about.response";
-import { carouselAnimation } from '../carousel.animations';
+import { carouselAnimation, slideTo, sliderIncrement, carouselTransition } from '../carousel.animations';
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrls: ["./about.component.scss"],
-  // animations: [carouselAnimation]
+  // animations: [
+  //   trigger('slide',[ transition(sliderIncrement, carouselTransition) ])
+  // ]
 })
 export class AboutComponent implements OnInit, OnDestroy {
   title: string;
@@ -83,10 +86,8 @@ export class AboutComponent implements OnInit, OnDestroy {
   get(): void {
     const that = this;
   }
-oldAngle: number;
   next() {
     this.slideIndex++;
-    this.oldAngle = this.carouselAngle;
     this.carouselAngle = this.alpha * this.slideIndex;
 
   }
@@ -95,6 +96,17 @@ oldAngle: number;
     this.slideIndex--;
     this.carouselAngle = this.alpha * this.slideIndex;
   }
+
+  axisZ: number = 0;
+  axisX: number = 0;
+  rotateX3D(theta) {
+    var sinTheta = Math.sin(theta);
+    var cosTheta = Math.cos(theta);
+    let y  = 0;
+    let z = 0;
+      this.axisZ =  y * cosTheta - z * sinTheta;
+      this.axisX = z * cosTheta + y * sinTheta;
+ };
 
   carouselAngle: number = 0;
   slide(event: Event) {
@@ -119,6 +131,7 @@ oldAngle: number;
       cellSize / 2 / Math.tan(Math.PI / this.aboutDetails.length)
     );
   }
+
   ngOnDestroy() {
     // fix me, have to call it in every HubComponent
   }
