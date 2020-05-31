@@ -9,10 +9,12 @@
 $nav-box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, 0.16);
 
 :host {
+
   header {
-    background-color: $white;
+    background-color: #{$color-main-sec-light};
     box-shadow: $nav-box-shadow;
     height: $nav-height;
+    
   }
 
   .m-list {

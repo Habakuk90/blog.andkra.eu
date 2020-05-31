@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "Content Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Page": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.page",
+      "required": true
+    }
+  },
+  "connection": "default",
+  "collectionName": "content_page"
+}

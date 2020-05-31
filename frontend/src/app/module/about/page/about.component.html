@@ -1,0 +1,33 @@
+<div class="about">
+  <span class="arrow left" (click)="prev()"><</span>
+
+  <div class="about__intro-wrapper">
+    <div class="about__intro">
+      <div
+        class="carouselContainer"
+        [style.transform]="'translateZ(-' + radius + 'px) rotate3d(0,1,0,'+ -this.carouselAngle + 'deg) rotateX('+ axisX +'deg) rotateZ('+ axisZ + 'deg)'"
+
+      >
+        <!-- <app-about-detail [style.transform]="'translateZ('+ radius + 'px) rotateY(' + alpha * i + 'deg)'"
+        *ngFor="let details of aboutDetails; index as i" [details]="details"></app-about-detail> -->
+
+
+
+        <div
+          class="about__cell"
+          [style.transform]="'rotateY(' + alpha * i + 'deg) translateZ(' + radius + 'px)'"
+          *ngFor="let details of aboutDetails; index as i"
+        >
+        <div class="cell__content">
+          <div class="cell__image">
+            <img [src]="details.logo.url" alt="" />
+          </div>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="arrow right" (click)="next()">></span>
+</div>

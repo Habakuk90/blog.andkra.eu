@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  blog_api:
+    container_name: strapi
+    image: wahnsinnshub/blog.andkra.eu.backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_CLIENT=mysql
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=strapi
+      - DATABASE_PASSWORD=strapi
+    ports:
+      - 1337:1337
+    volumes:
+      - ./strapi/app/public/uploads:/srv/app/public/uploads
+    depends_on:
+      - db
+  blog_app:
+    container_name: web
+    image: wahnsinnshub/blog.andkra.eu.frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - url=localhost:1337
+    ports:
+      - 2000:80
+  db:
+    container_name: mysql
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_DATABASE=strapi
+      - MYSQL_USER=strapi
+      - MYSQL_PASSWORD=strapi
+      - MYSQL_ROOT_PASSWORD=strapi
+      - MYSQL_ROOT_HOST=%
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
+    volumes:
+      - ./strapi/db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+
+
+# networks:
+#   envoymesh: {}

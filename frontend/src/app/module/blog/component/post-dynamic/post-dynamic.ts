@@ -19,6 +19,7 @@ export interface IPostDynamicImageCollection extends IPostDynamic {
 
 export interface IPostDynamicImageSingle extends IPostDynamic {
   media: IImage;
+  caption: string;
 }
 
 export interface IPostDynamicTextBlock extends IPostDynamic {
