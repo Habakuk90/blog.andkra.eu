@@ -6,7 +6,7 @@ import { IPostDynamicTextBlock, IPostDynamicComponent } from '../post-dynamic';
     <div class="postDynamic__textBlock" [innerHTML]="data.text">
     </div>
   `,
-  styles: ['.postDynamic__textBlock { max-width: 1040px; margin-left: auto; margin-right: auto;}']
+  styleUrls: ['../post-dynamic.component.scss']
 })
 export class PostDynamicTextBlockComponent implements IPostDynamicComponent, OnInit {
 

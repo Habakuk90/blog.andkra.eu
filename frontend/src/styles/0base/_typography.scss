@@ -19,9 +19,9 @@ $font-size-h1: (
   sm: $font-size-h1-sm
 );
 
-$line-height-h1-lg: 1.05rem;
-$line-height-h1-md: 1.125rem;
-$line-height-h1-sm: 1.25rem;
+$line-height-h1-lg: 1.05;
+$line-height-h1-md: 1.125;
+$line-height-h1-sm: 1.25;
 $line-height-h1: (
   lg: $line-height-h1-lg,
   md: $line-height-h1-md,
@@ -38,9 +38,9 @@ $font-size-h2: (
   sm: $font-size-h2-sm
 );
 
-$line-height-h2-lg: 1.25rem;
-$line-height-h2-md: 1.25rem;
-$line-height-h2-sm: 1.5384615rem;
+$line-height-h2-lg: 1.25;
+$line-height-h2-md: 1.25;
+$line-height-h2-sm: 1.5384615;
 $line-height-h2: (
   lg: $line-height-h2-lg,
   md: $line-height-h2-md,
@@ -58,9 +58,9 @@ $font-size-h3: (
   sm: $font-size-h3-sm
 );
 
-$line-height-h3-lg: 1.25rem;
-$line-height-h3-md: 1.25rem;
-$line-height-h3-sm: 1.13636364rem;
+$line-height-h3-lg: 1.25;
+$line-height-h3-md: 1.25;
+$line-height-h3-sm: 1.13636364;
 $line-height-h3: (
   lg: $line-height-h3-lg,
   md: $line-height-h3-md,
@@ -78,9 +78,9 @@ $font-size-h4: (
   sm: $font-size-h4-sm
 );
 
-$line-height-h4-lg: 1.222222222rem;
-$line-height-h4-md: 1.222222222rem;
-$line-height-h4-sm: 1.111111111rem;
+$line-height-h4-lg: 1.222222222;
+$line-height-h4-md: 1.222222222;
+$line-height-h4-sm: 1.111111111;
 $line-height-h4: (
   lg: $line-height-h4-lg,
   md: $line-height-h4-md,
@@ -173,11 +173,11 @@ h6 a {
 h1, .h1-style {
   @include add-font-size($font-size-h1);
   font-weight: bold;
-  // @include add-by-property($line-height-h1, line-height);
+  @include add-by-property($line-height-h1, line-height);
 }
 h2, .h2-style {
   @include add-font-size($font-size-h2);
-  // @include add-by-property($line-height-h2, line-height);
+  @include add-by-property($line-height-h2, line-height);
 }
 h3, .h3-style {
   @include add-font-size($font-size-h3);

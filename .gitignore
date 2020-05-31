@@ -1,3 +1,4 @@
 .tmp
 /strapi
 .vscode/
+backend/.node-version
