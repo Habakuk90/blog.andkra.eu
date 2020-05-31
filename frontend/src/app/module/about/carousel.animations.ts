@@ -1,35 +1,29 @@
-import { transition, trigger, AnimationMetadata, query, style, sequence, animate, useAnimation, animation, AnimationOptions, AnimationTransitionMetadata } from '@angular/animations';
+import { transition, trigger, query, style, animate } from '@angular/animations';
 
-const ANIMATION_STEPS_NONE: AnimationMetadata[] = [];
-const ANIMATION_STEPS_ALL: AnimationMetadata[] = [/* step1, step2, ... */];
-const ANIMATION_STEPS_PAGE: AnimationMetadata[] = [/* step1, step3 */];
-const ANIMATION_STEPS_ELEMENTS: AnimationMetadata[] = [/* step2, step4 */];
-const oldAngle = 0;
 
-type Meta = (fromState: string, toState: string, element?: any, params?: { [key: string]: any; }) => boolean;
 
-let radius: number = 0;
+let radius = 0;
 let angle = 0;
 let cellSize = 0;
 let count = 0;
 let index = 0;
-export function sliderIncrement(fromState: string, toState: string, element?: any, params?: { [key: string]: any; }) : boolean  {
- count = params["length"];
- cellSize = params["cellSize"];
- index = parseInt(toState);
+export function sliderIncrement(fromState: string, toState: string, params?: { [key: string]: any; }): boolean  {
+ count = params['length'];
+ cellSize = params['cellSize'];
+ index = parseInt(toState, 10);
  calculate();
  console.log(count, cellSize, index);
- return parseInt(fromState) < parseInt(toState); 
+ return parseInt(fromState, 10) < parseInt(toState, 10);
 }
 
-// export const sliderAnimation = animation(slideTo()); 
+// export const sliderAnimation = animation(slideTo());
 
 export function sliderDecrement() {
-  
+
 }
 
 function calculate() {
-  let alpha = 360 / count;
+  const alpha = 360 / count;
   radius = Math.round(
     cellSize / 2 / Math.tan(Math.PI / count));
 
@@ -37,26 +31,16 @@ function calculate() {
 
 }
 
-export const carouselAnimation = trigger("slide", [
+export const carouselAnimation = trigger('slide', [
     transition(sliderIncrement, slideTo())
 ]);
 
 export const carouselTransition = transition(sliderIncrement, slideTo());
 
 export function slideTo() {
-  console.log(radius);
-  console.log(angle);
-  console.log(cellSize);
-  console.log(count);
-  calculate();
-  console.log(radius);
-  console.log(angle);
-  console.log(cellSize);
-  console.log(count);
-  debugger;
   return [
     query(
-      ":self",
+      ':self',
       [
         style({
           transform:
@@ -65,27 +49,27 @@ export function slideTo() {
       ],
     ),
     query(
-      ":self",
+      ':self',
       [
         animate(
-          ".6s ease",
+          '.6s ease',
           style({
             transform:
               `translateZ(-${20}px) rotateY(-${20})`,
-          }),  
+          }),
         ),
       ],
     ),
     query(
-      ":self",
+      ':self',
       [
         animate(
-          ".6s ease",
+          '.6s ease',
           style({
             transform:
-              "scale(1)",
+              'scale(1)',
           })
         ),
       ])
-  ]
+  ];
 }
