@@ -12,7 +12,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/blog',
+        redirectTo: '/about',
         pathMatch: 'full'
         // loadChildren: () =>
         //   import('./module/home/home.module').then(m => m.HomeModule)
@@ -21,6 +21,11 @@ export const routes: Routes = [
         path: 'blog',
         loadChildren: () =>
           import('./module/blog/blog.module').then(m => m.BlogModule)
+      },
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('./module/about/about.module').then(m => m.AboutModule)
       },
       { path: '**', component: PageNotFoundComponent }
     ]

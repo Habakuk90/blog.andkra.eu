@@ -5,12 +5,12 @@ export interface IBaseResponse {
 }
 
 export interface IImage {
-  created_at: string;
-  ext: string;
-  hash: string;
-  id: number;
-  mime: string;
-  name: string;
+  created_at?: string;
+  ext?: string;
+  hash?: string;
+  id?: number;
+  mime?: string;
+  name?: string;
   url: string;
 }
 

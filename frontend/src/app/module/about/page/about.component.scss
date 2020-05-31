@@ -1,0 +1,89 @@
+@import "../../../../styles/0base/colors";
+@import "1atom/a-mixins";
+
+:host {
+  display: block;
+}
+
+.about {
+  &__intro-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+
+  &__intro {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    perspective: 1000px;
+    overflow: hidden;
+    background-color: #{$color-main-sec-light};
+  }
+
+  &__cell {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #{$color-main-complement}C7;
+
+    .cell {
+      &__content {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+      }
+      
+      &__image {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+  }
+
+  span {
+    user-select: none;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 200px;
+    z-index: 1;
+
+    &.right {
+      right: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+  }
+}
+
+.carouselContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
