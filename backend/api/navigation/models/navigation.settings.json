@@ -1,21 +1,19 @@
 {
-  "connection": "default",
+  "kind": "singleType",
   "collectionName": "navigations",
   "info": {
-    "name": "navigation"
+    "name": "Navigation"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "base.link"
-    },
-    "name": {
-      "type": "string"
+    "Items": {
+      "type": "dynamiczone",
+      "components": [
+        "base.link"
+      ]
     }
   }
 }
