@@ -49,43 +49,43 @@ export class AboutComponent implements OnInit, OnDestroy {
       (x) => (this.aboutDetails = x),
       (error) => {
         console.log(error);
-        this.aboutDetails.push(
-          {
-            id: 0,
-            title: '1200x720',
-            created_at: 'today',
-            updated_at: 'today',
-            logo: { url: 'https://via.placeholder.com/2000x1240' },
-          },
-          {
-            id: 1,
-            title: '250x',
-            created_at: 'today',
-            updated_at: 'today',
-            logo: { url: 'https://via.placeholder.com/250x250' },
-          },
-          {
-            id: 2,
-            title: '2860x123',
-            created_at: 'today',
-            updated_at: 'today',
-            logo: { url: 'https://via.placeholder.com/100x100' },
-          },
-          {
-            id: 3,
-            title: '2860x123',
-            created_at: 'today',
-            updated_at: 'today',
-            logo: { url: 'https://via.placeholder.com/100x100' },
-          },
-          {
-            id: 4,
-            title: '2860x123',
-            created_at: 'today',
-            updated_at: 'today',
-            logo: { url: 'https://via.placeholder.com/100x100' },
-          }
-        );
+        // this.aboutDetails.push(
+        //   {
+        //     id: 0,
+        //     title: '1200x720',
+        //     created_at: 'today',
+        //     updated_at: 'today',
+        //     logo: { url: 'https://via.placeholder.com/2000x1240' },
+        //   },
+        //   {
+        //     id: 1,
+        //     title: '250x',
+        //     created_at: 'today',
+        //     updated_at: 'today',
+        //     logo: { url: 'https://via.placeholder.com/250x250' },
+        //   },
+        //   {
+        //     id: 2,
+        //     title: '2860x123',
+        //     created_at: 'today',
+        //     updated_at: 'today',
+        //     logo: { url: 'https://via.placeholder.com/100x100' },
+        //   },
+        //   {
+        //     id: 3,
+        //     title: '2860x123',
+        //     created_at: 'today',
+        //     updated_at: 'today',
+        //     logo: { url: 'https://via.placeholder.com/100x100' },
+        //   },
+        //   {
+        //     id: 4,
+        //     title: '2860x123',
+        //     created_at: 'today',
+        //     updated_at: 'today',
+        //     logo: { url: 'https://via.placeholder.com/100x100' },
+        //   }
+        // );
 
         this.changeCarousel();
       }

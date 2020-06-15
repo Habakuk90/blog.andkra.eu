@@ -3,6 +3,9 @@ import { ApiService } from 'src/app/shared/services/api.service';
 import { Endpoints } from 'src/app/shared/http/endpoints';
 import { Router } from '@angular/router';
 import { IBlogPost } from '../blog.response';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+import { AddLocalProviderImgUrl } from 'src/app/shared/http/endpoint.helper';
 
 @Component({
   selector: 'app-blog',
@@ -15,10 +18,14 @@ export class BlogComponent implements OnInit {
   }
 
   get(query = '') {
-    this.apiService.get<IBlogPost[]>(Endpoints.BlogPosts, query).subscribe(response => {
-      this.posts = response.filter(x => !x.draft);
-      this.addRouterUrl();
-    });
+    this.apiService
+      .get<IBlogPost[]>(Endpoints.BlogPosts, query)
+      .pipe(map(AddLocalProviderImgUrl))
+      .subscribe(response => {
+
+        this.posts = (<IBlogPost[]>response).filter(x => !x.draft);
+        this.addRouterUrl();
+      });
   }
 
   onCategorySelected(e: string[]) {

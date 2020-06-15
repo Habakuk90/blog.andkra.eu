@@ -719,6 +719,9 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "caption": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -816,6 +819,21 @@
           },
           "draft": {
             "type": "boolean"
+          },
+          "Page": {
+            "type": "object",
+            "required": [
+              "id",
+              "title"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1007,6 +1025,9 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "caption": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1027,6 +1048,21 @@
           },
           "draft": {
             "type": "boolean"
+          },
+          "Page": {
+            "type": "object",
+            "required": [
+              "id",
+              "title"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
           }
         }
       }

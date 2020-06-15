@@ -1,7 +1,7 @@
 import { IPostDynamic } from './component/post-dynamic/post-dynamic';
-import { IBaseResponse, IImage } from 'src/app/shared/http/response';
+import { IBaseResponse, IImage, IBasePageResponse } from 'src/app/shared/http/response';
 
-export interface IBlogPost extends IBaseResponse {
+export interface IBlogPost extends IBasePageResponse {
   title: string;
   url: string;
   description: string;

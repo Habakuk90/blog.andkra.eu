@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { Endpoints } from 'src/app/shared/http/endpoints';
 import { IBlogPost } from '../../blog.response';
+import { AddLocalProviderImgUrl } from 'src/app/shared/http/endpoint.helper';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog-post',
@@ -28,12 +30,17 @@ export class BlogPostComponent implements OnInit {
 
   get(slug: string) {
     const that = this;
-    that.apiService.get<IBlogPost>(Endpoints.BlogPosts + slug).subscribe(response => {
-      if (response.draft) {
-        this.router.navigate(['/blog']);
-      }
-      this.post = response;
-      this.titleService.setTitle(response.title);
-    });
+
+    that.apiService
+      .get<IBlogPost>(Endpoints.BlogPosts + slug)
+      .pipe(map(AddLocalProviderImgUrl))
+      .subscribe(response => {
+        const castResponse = <IBlogPost>response;
+        if (castResponse.draft) {
+          this.router.navigate(['/blog']);
+        }
+        this.post = castResponse;
+        this.titleService.setTitle(castResponse.title);
+      });
   }
 }

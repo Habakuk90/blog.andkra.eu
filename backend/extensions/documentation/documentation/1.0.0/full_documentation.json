@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/30/2020 8:47:42 PM"
+    "x-generation-date": "06/14/2020 10:42:48 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1617,13 +1617,13 @@
         ]
       }
     },
-    "/navigations": {
+    "/navigation": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the navigation's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve navigation document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1809,194 +1809,12 @@
           }
         ]
       },
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Navigation"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Navigation"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewNavigation"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/navigations/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "count": {
-                      "type": "integer"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Navigation"
-        ],
-        "parameters": []
-      }
-    },
-    "/navigations/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Navigation"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Navigation"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single navigation record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve navigation document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -2051,25 +1869,14 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single navigation record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single navigation based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -2114,18 +1921,7 @@
         "tags": [
           "Navigation"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       }
     },
     "/email/": {
@@ -4328,6 +4124,9 @@
                 },
                 "draft": {
                   "type": "boolean"
+                },
+                "Page": {
+                  "type": "component"
                 }
               }
             }
@@ -4539,6 +4338,9 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "caption": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -4636,6 +4438,21 @@
           },
           "draft": {
             "type": "boolean"
+          },
+          "Page": {
+            "type": "object",
+            "required": [
+              "id",
+              "title"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -4827,6 +4644,9 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "caption": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -4847,6 +4667,21 @@
           },
           "draft": {
             "type": "boolean"
+          },
+          "Page": {
+            "type": "object",
+            "required": [
+              "id",
+              "title"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -4862,13 +4697,14 @@
           "Page": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Title": {
+              "title": {
                 "type": "string"
               }
             }
@@ -4883,13 +4719,14 @@
           "Page": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Title": {
+              "title": {
                 "type": "string"
               }
             }
@@ -4904,65 +4741,77 @@
           "id": {
             "type": "string"
           },
-          "links": {
+          "Items": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "name",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "icon_class": {
-                  "type": "string"
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "base.link"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "icon_class": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "url"
+                  ]
                 }
-              }
+              ]
             }
-          },
-          "name": {
-            "type": "string"
           }
         }
       },
       "NewNavigation": {
         "properties": {
-          "links": {
+          "Items": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "name",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "icon_class": {
-                  "type": "string"
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "base.link"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "icon_class": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "url"
+                  ]
                 }
-              }
+              ]
             }
-          },
-          "name": {
-            "type": "string"
           }
         }
       },

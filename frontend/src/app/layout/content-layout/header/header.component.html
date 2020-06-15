@@ -2,7 +2,7 @@
   <nav class="o-nav">
     <ul class="o-nav__list m-list">
       <ng-container>
-        <li *ngFor="let item of navigation?.links; trackById" class="m-list__item"
+        <li *ngFor="let item of navigation?.Items; trackById" class="m-list__item"
           routerLink="{{item.url}}" [ngClass]="item.icon_class">
           <span>{{item.name}}</span>
         </li>
