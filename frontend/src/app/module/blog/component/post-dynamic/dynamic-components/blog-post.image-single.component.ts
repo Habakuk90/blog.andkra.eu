@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IPostDynamicImageSingle, IPostDynamicComponent } from '../post-dynamic';
+import { environment } from 'src/environments/environment';
 
 @Component({
   template: `
@@ -9,7 +10,13 @@ import { IPostDynamicImageSingle, IPostDynamicComponent } from '../post-dynamic'
   `,
   styleUrls: ['../post-dynamic.component.scss']
 })
-export class PostDynamicImageSingleComponent implements IPostDynamicComponent {
+export class PostDynamicImageSingleComponent implements IPostDynamicComponent, OnInit {
   @Input() data: IPostDynamicImageSingle;
 
+
+  ngOnInit(): void {
+    if (this.data.media.provider === 'local') {
+      this.data.media.url = 'http://' + environment.strapi_url + this.data.media.url;
+    }
+  }
 }

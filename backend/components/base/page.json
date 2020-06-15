@@ -1,14 +1,15 @@
 {
+  "connection": "default",
+  "collectionName": "components_base_pages",
   "info": {
-    "name": "Page",
+    "name": "page",
     "icon": "file-code"
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
+    "title": {
+      "type": "string",
+      "required": true
     }
-  },
-  "connection": "default",
-  "collectionName": "components_base_pages"
+  }
 }

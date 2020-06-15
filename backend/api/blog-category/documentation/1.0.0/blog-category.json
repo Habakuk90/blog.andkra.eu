@@ -569,6 +569,9 @@
                 },
                 "draft": {
                   "type": "boolean"
+                },
+                "Page": {
+                  "type": "component"
                 }
               }
             }
