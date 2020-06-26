@@ -13,7 +13,9 @@
     "allowEmptyCodegenFiles": true
   },
   "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
+    "./src/test.ts",
+    "**/*.spec.ts",
+    "./src/environments/environment.prod.ts",
+    "./src/environments/environment.staging.ts"
   ]
 }
