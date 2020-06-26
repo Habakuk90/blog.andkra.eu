@@ -1,7 +1,4 @@
 import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { take, map } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
     setTimeout(() => {
       this.house.zoom = true;
-      
+
     }, 200);
 
   }
