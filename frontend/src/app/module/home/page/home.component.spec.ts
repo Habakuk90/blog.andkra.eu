@@ -26,7 +26,7 @@
 //   // }));
 
 //   // beforeEach(() => {
-//   //   router = TestBed.get(Router);
+//   //   router = TestBed.inject(Router);
 
 //   //   fixture = TestBed.createComponent(HomeComponent);
 //   //   component = fixture.componentInstance;

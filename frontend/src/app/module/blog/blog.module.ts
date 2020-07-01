@@ -30,10 +30,10 @@ import { BlogCategoriesComponent } from './component/blog-categories/blog-catego
   ],
   exports: [],
   providers: [],
-  entryComponents: [
-    PostDynamicImageSingleComponent,
-    PostDynamicImageCollectionComponent,
-    PostDynamicTextBlockComponent
-  ]
+  // entryComponents: [
+  //   PostDynamicImageSingleComponent,
+  //   PostDynamicImageCollectionComponent,
+  //   PostDynamicTextBlockComponent
+  // ]
 })
 export class BlogModule { }
