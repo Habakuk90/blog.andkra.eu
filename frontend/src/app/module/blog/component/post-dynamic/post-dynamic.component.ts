@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
 import { PostDynamicDirective } from './post-dynamic.directive';
-import { IPostDynamic, IPostDynamicComponent, PostDynamicResolver } from './post-dynamic';
+import { IPostDynamic, IPostDynamicComponent } from './post-dynamic';
+import { PostDynamicResolver } from './post-dynamic.resolver';
 
 @Component({
   selector: 'app-post-dynamic',
