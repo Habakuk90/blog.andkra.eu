@@ -8,5 +8,27 @@
   &__image {
     @include aspect-ratio-container(6, 1, cover);
   }
+
+  .house {
+    transition: height 3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    position: relative;
+    width: 100vw;
+    height: 0;
+
+    &.zoom {
+      &--in {
+        height: 500px;
+      }
+
+      &--out {
+        height: 0;
+      }
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 

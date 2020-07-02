@@ -1,4 +1,5 @@
 {
+  "kind": "collectionType",
   "connection": "default",
   "collectionName": "blog_posts",
   "info": {
@@ -37,6 +38,11 @@
     },
     "draft": {
       "type": "boolean"
+    },
+    "Page": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.page"
     }
   }
 }

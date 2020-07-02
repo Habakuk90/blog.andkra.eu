@@ -12,10 +12,9 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/blog',
-        pathMatch: 'full'
-        // loadChildren: () =>
-        //   import('./module/home/home.module').then(m => m.HomeModule)
+        pathMatch: 'full',
+        loadChildren: () =>
+          import('./module/home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'blog',

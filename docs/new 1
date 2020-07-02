@@ -1,0 +1,13 @@
+- certifcates
+
+https://certbot.eff.org/lets-encrypt/ubuntubionic-webproduct
+
+configure ssl by convention of nginx
+
+use docker-mailserver instructions
+
+check all firewall settings
+
+
+
+ Recipient address rejected: User unknown in local recipient table
