@@ -1,13 +1,13 @@
 ### STAGE 1: Build ###
 
 # We label our stage as ‘builder’
-FROM node:13.5.0-alpine as builder
+FROM node:14.4.0-alpine3.12 as builder
 
 ADD package.json /tmp/package.json
 ADD package-lock.json /tmp/package-lock.json
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN cd /tmp && npm install
+RUN cd /tmp && npm install --unsafe-perm
 RUN mkdir -p /ng-app && cp -a /tmp/node_modules /ng-app
 
 WORKDIR /ng-app
