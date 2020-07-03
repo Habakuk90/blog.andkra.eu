@@ -13,7 +13,7 @@ export class ApiService extends BaseService {
   }
 
   public get apiUrl() {
-    return 'http://' + environment.strapi_url;
+    return 'https://' + environment.strapi_url;
   }
 
   public get<T>(url, query = '') {
