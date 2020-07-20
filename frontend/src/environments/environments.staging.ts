@@ -1,5 +1,5 @@
 
 export const environment = {
-    production: true,
+    production: false,
     strapi_url: process.env.STRAPI_URL
   };
