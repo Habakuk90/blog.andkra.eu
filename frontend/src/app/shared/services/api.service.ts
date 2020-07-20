@@ -13,7 +13,9 @@ export class ApiService extends BaseService {
   }
 
   public get apiUrl() {
-    return 'https://' + environment.strapi_url;
+    const scheme = environment.production ? 'https://' : 'http://';
+
+    return scheme + environment.strapi_url;
   }
 
   public get<T>(url, query = '') {
